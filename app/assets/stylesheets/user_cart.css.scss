@@ -1,0 +1,24 @@
+// Place all the styles related to the UserCart controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#user_cart {
+  padding-bottom: 3px;
+  margin-bottom: 20px;
+
+  #line_item_info {
+    img {
+      width: 90px;
+      margin-bottom: 5px;
+      margin-top: 5px;
+    }
+  }
+  
+  #btn-group {
+    overflow: hidden;
+    
+    .btn {
+      float: right;
+      margin-right: 5px;
+    }
+  }
+}

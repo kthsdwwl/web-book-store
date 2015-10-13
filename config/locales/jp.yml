@@ -1,0 +1,130 @@
+jp:
+  
+  layouts:
+    application:
+      title:      "ネット書店"
+      home:       "ホーム"
+      questions:  "質問"
+      news:       "ニュース"
+      contact:    "連絡"
+      login:      "登録"
+      logout:     "ログアウト"
+      register:   "レジスター"
+      search:     "検索"
+      language:   "言語"
+      my_cart:    "ショッピングカート"
+      my_orders:  "マイオーダー"
+      orders:     "オーダー"
+      products:   "製品"
+      users:      "ユーザー"
+      back_to_top: "トップ"
+  
+  store:
+    index:
+      title_html: "ブックリスト"
+      add_html:   "カートに入れる"
+  
+  products:
+    product:
+      add_html:   "カートに入れる"
+      comment:    "コメント"
+      close_modal: "クローズ"
+      like:        "のような"
+    index:
+      page_title:  "商品リスト"
+      page_subtitle:  "ここにあなたの製品を管理する."
+      new_product:  "新商品"
+      show:         "ビュー"
+      edit:         "編集"
+      dele:      "削除"
+      
+  carts:
+    cart:
+      title:      "あなたのカート"
+      empty:      "クリア"
+      checkout:   "チェックアウト"
+      view_cart:  "カートを見る"
+      
+  number:
+    currency:
+      format:
+        unit :      "¥"
+        precision:  2
+        separator:  "."
+        delimiter:  ","
+        format:     "%u%n"
+        
+  orders:
+    new:
+      legend:       "あなたの詳細を入力してください"
+      new_order:    "新しいオーダー"
+    edit:
+      legend:       "あなたの詳細を入力してください"
+      edit_order:    "編集オーダー"
+    form:
+      name:         "名前"
+      address_html: "アドレス"
+      email:        "電子メール"
+      pay_type:     "ペイメント"
+      pay_prompt_html:  "支払方法を選択してください"
+      submit:       "受注"
+    index:
+      page_title:  "オーダーリスト"
+      page_subtitle:  "顧客のオーダーを管理する."
+      new_order:  "新しいオーダー"
+      name:  "名前"
+      address:  "アドレス"
+      email:  "電子メール"
+      pay_type:  "ペイメント"
+      status:    "ステータス"
+      show:  "ビュー"
+      edit:  "編集"
+      destroy:  "削除"
+  
+  users:
+    index:
+      page_title:  "ユーザーリスト"
+      name:        "ユーザー名"
+      show:        "ビュー"
+      edit:        "編集"
+      destroy:     "削除"
+  
+  activerecord:
+    models:
+      order:        "オーダー"
+    attributes:
+      order:
+        address:    "アドレス"
+        name:       "名前"
+        email:      "電子メール"
+        pay_type:   "ペイメント"
+    errors:
+      messages:
+        inclusion:  "リストに含まれていない"
+        blank:      "空白にすることはできません"
+        not_a_number: "有効な数値ではありません"
+  
+  errors:
+    template:
+      body:         "次のフィールドに問題があります:"
+      header:
+        one:        "1 エラーは、この要求が保存される妨げている。"
+        other:      "%{count} エラーは、この要求が保存される妨げている。"
+
+  thanks:           "ご注文いただき、ありがとうございます"
+  
+  user_cart:
+    show_user_cart:
+      page_title:        "あなたのショッピングカート"
+      page_subtitle:     "ここのカートを編集することができます。"
+    user_cart:
+      title:             "タイトル"
+      price:             "プライス"
+      quantity:          "数量"
+      total:             "合計"
+      operation:         "操作"
+      dele:              "削除"
+      update:            "更新"
+      empty:             "クリア"
+      checkout:          "チェックアウト"
+      

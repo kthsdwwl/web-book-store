@@ -1,0 +1,61 @@
+<% if notice %>
+<p id="notice" class="alert alert-info">
+	<strong>Information </strong><%= notice %>
+</p>
+<% end %>
+
+<% if flash[:error] %>
+<p id="error" class="alert alert-error">
+	<strong>Error </strong><%= flash[:error] %>
+</p>
+<% end %>
+
+<h1><%= t('.title_html') %></h1>
+
+<div id="my-carousel" class="well carousel slide" >
+	<div class="carousel-inner">
+		<div class="item active">
+			<div id="item1" class="hero-unit row-fluid">
+				<div class="span6">
+					<h1><%= truncate(@item1.title, length:25) %></h1>
+					<p>
+						<%= truncate(strip_tags(@item1.description), length: 50)%>
+					</p>
+				</div>
+				<%= image_tag @item1.image_url, class: "span3" %>
+			</div>
+		</div>
+		<div class="item">
+			<div id="item2" class="hero-unit row-fluid">
+				<%= image_tag @item2.image_url, class: "span3" %>
+				<div class="span6">
+					<h1><%= truncate(@item2.title, length:25) %></h1>
+					<p>
+						<%= truncate(strip_tags(@item2.description), length: 50)%>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="item">
+			<div id="item3" class="hero-unit row-fluid">
+				<div class="span6">
+					<h1><%= truncate(@item3.title, length:25) %></h1>
+					<p>
+						<%= truncate(strip_tags(@item3.description), length: 50)%>
+					</p>
+				</div>
+				<%= image_tag @item3.image_url, class: "span3" %>
+			</div>
+		</div>
+	</div>
+	<a class="carousel-control left" href="#my-carousel" data-slide="prev">‹</a>
+	<a class="carousel-control right" href="#my-carousel" data-slide="next">›</a>
+</div>
+
+<div id="book_list">
+	<%= render @products %>
+</div>
+
+<div id="paginate">
+	<%= will_paginate @products, renderer: BootstrapPagination::Rails %>
+</div>

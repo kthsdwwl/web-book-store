@@ -1,0 +1,45 @@
+<h1>Order Information</h1>
+<div class="blur row-fluid span11" style="padding:20px; padding-top:20px">
+	<h4>User Information
+	<% if session[:user_permission] == 1 %>
+	<%= link_to "Ship", orders_ship_url(@order), class: "btn btn-primary pull-right" %>
+	<% end %> </h4>
+	<%= image_tag "head.jpg", class: "thumbnail span2", style: "margin-top:10px" %>
+	<div class="span9">
+		<p id="notice">
+			<%= notice %>
+		</p>
+
+		<table class="table table-hover table-bordered">
+			<tbody>
+				<tr><td>
+					<strong>Name: </strong>
+					<%= @order.name %>
+					</td>
+				</tr>
+
+				<tr><td>
+					<strong>Address: </strong>
+					<%= @order.address %></td>
+				</tr>
+
+				<tr><td>
+					<strong>Email: </strong>
+					<%= @order.email %></td>
+				</tr>
+
+				<tr><td>
+					<strong>Pay type: </strong>
+					<%= @order.pay_type %></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="blur span11" style="padding: 20px; margin-top:20px">
+	<h4>Line Items Information</h4>
+	<table class="table table-hover">
+		<%= render @order.line_items %>
+	</table>
+</div>

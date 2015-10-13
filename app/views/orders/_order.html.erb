@@ -1,0 +1,14 @@
+<tr>
+	<td><%= order.name %></td>
+	<td><%= order.address %></td>
+	<td><%= order.email %></td>
+	<td><%= order.pay_type %></td>
+	<td> 
+		<% if order.status == 0 %>
+		Unshipped
+		<% else %>
+		Shipped
+		<% end %> 
+	</td>
+	<td><%= link_to t('.show'), order, class: "btn btn-primary btn-small" %></td>
+</tr>

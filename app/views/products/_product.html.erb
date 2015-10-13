@@ -1,0 +1,45 @@
+<div id="entry<%= product.id%>" class="entry bsa well">
+	<%= image_tag(product.image_url, class: "thumbnail book_img") %>
+	<h3 class="item_name"><%= product.title %></h3>
+	
+	<p>
+		<%= sanitize(product.description) %>
+	</p>
+	<div class="price_line">
+		<span class="price"><%= number_to_currency(product.price) %></span>
+		<a href="/products/add_like/<%= product.id %>" class="like_btn btn btn-primary pull-right" data-remote="true" style="margin-left:10px;">
+			<i class="icon-heart icon-white"></i>
+			<%= t('.like') %>(<%= product.like_num %>)
+		</a>
+		<a href="#modal<%= product.id %>" class="btn btn-primary comment_btn pull-right" data-toggle="modal" style="margin-left:10px;">
+			<%= t('.comment') %>
+		</a>
+		<%= button_to t('.add_html'),
+					  line_items_path(product_id: product),
+					  remote: true,
+					  class: "btn btn-primary add_btn pull-right" %>
+	</div>
+</div>
+
+<div id="modal<%= product.id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+			×
+		</button>
+		<h3 id="myModalLabel"><%= product.title %></h3>
+		
+	</div>
+	<div class="modal-body">
+		<%= render partial: 'comments/new_comment', locals: { product_id: product.id } %>
+		<hr>
+		<div class="all_comments" >
+			<h5> Total <%= product.comments.length %> comments: </h5>
+			<%= render product.comments.order('created_at desc') %>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn" data-dismiss="modal" aria-hidden="true">
+			<%= t('.close_modal') %>
+		</button>
+	</div>
+</div>

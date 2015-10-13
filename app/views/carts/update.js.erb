@@ -1,0 +1,14 @@
+<% if @error %>
+	$('.alert').css('display', 'block')
+<% else %>
+	$('.alert').css('display', 'none')
+<% end %>
+
+
+$('#user_cart').flip({
+	direction: 'lr',
+	color: 'transparent'
+})
+
+$('#user_cart').html("<%= j render partial: 'user_cart/user_cart', locals: {user_cart: @user_cart} %>");
+

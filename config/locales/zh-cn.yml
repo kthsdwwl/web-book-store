@@ -1,0 +1,149 @@
+zh-cn:
+  
+  layouts:
+    application:
+      title:  "网上书城"
+      home:  "首页"
+      questions:  "问题"
+      news:  "消息"
+      contact:  "联系我们"
+      login:  "登录"
+      register:  "注册"
+      search:  "搜索"
+      language:  "语言"
+      my_cart:  "我的购物车"
+      my_orders:  "我的订单"
+      orders:  "订单信息"
+      products:  "商品信息"
+      users:  "用户信息"
+      logout:  "注销"
+      back_to_top:  "返回顶部"
+  
+  store:
+    index:
+      title_html:  "书籍目录"
+      add_html:  "加入购物车"
+      
+  products:
+    product:
+      add_html:  "加入购物车"
+      comment:    "评论"
+      close_modal: "关闭"
+      like:        "赞"
+    index:
+      page_title:  "商品列表"
+      page_subtitle:  "在这里管理您的商品."
+      new_product:  "创建新的商品"
+      show:  "查看"
+      edit:  "编辑"
+      dele:  "删除"
+      
+  carts:
+    cart:
+      title:  "你的购物车信息"
+      empty:  "清空购物车"
+      checkout:  "结账"
+      view_cart:  "查看购物车"
+      
+  number:
+    currency:
+      format:
+        unit:  "￥"
+        precision:  2
+        separator:  "."
+        delimiter:  ","
+        format:  "%u%n"
+        
+  orders:
+    new:
+      legend:       "请输入你的详细信息"
+      new_order:    "新的订单"
+    edit:
+      legend:       "请输入你的详细信息"
+      edit_order:    "编辑订单"
+    form:
+      name:         "姓名"
+      address_html:  "联系地址"
+      email:  "联系邮箱"
+      pay_type:  "支付方式"
+      pay_prompt_html:  "请选择一种支付方式"
+      submit:       "提交订单"
+    index:
+      page_title:  "订单列表"
+      page_subtitle:  "在这里管理用户订单."
+      new_order:  "创建新的订单"
+      name:  "姓名"
+      address:  "联系地址"
+      email:  "联系邮箱"
+      pay_type:  "支付方式"
+      status:    "状态"
+      show:  "查看"
+      edit:  "编辑"
+      destroy:  "删除"
+
+  activerecord:
+    models:
+      order:        "规则"
+    attributes:
+      order:
+        address:    "联系地址"
+        name:       "姓名"
+        email:      "联系邮箱"
+        pay_type:   "支付方式"
+    errors:
+      messages:
+        inclusion:  "没有从列表中选择"
+        blank:      "不能为空"
+        not_a_number: "不是一个合法数字"
+  
+  errors:
+    template:
+      body:         "在以下字段中存在一个问题："
+      header:
+        one:        "1个错误阻止了这次请求"
+        other:      "%{count}个错误阻止了这次请求"
+
+  user_cart:
+    show_user_cart:
+      page_title:        "您的购物车"
+      page_subtitle:     "您可以在此处编辑您的购物车"
+    user_cart:
+      title:             "标题"
+      price:             "价格"
+      quantity:          "数量"
+      total:             "总计"
+      operation:         "操作"
+      dele:              "删除"
+      update:            "更新"
+      empty:             "清空购物车"
+      checkout:          "结账"
+
+  users:
+    index:
+      page_title:  "用户列表"
+      name:  "用户名"
+      show:  "查看"
+      edit:  "编辑"
+      destroy:  "删除"
+      
+  thanks:           "感谢您的订购！欢迎再次光临！"
+
+
+#  seeds:
+#    literature:  "文学"
+#    management:  "管理"
+#    technology:  "技术"
+#    life:  "生活"
+#    fiction: "小说"
+#    youth:  "青春"
+#    legend:  "传记"
+#    economy:  "经济"
+#    investment:  "投资理财"
+#    finance: "经融"
+#    building:  "建筑"
+#    programming:  "编程"
+#    physics:  "物理学"
+#    chemistry:  "化学"
+#    health:  "健康与养生"
+#    entertainment:  "娱乐"
+#    fashion:  "时尚"

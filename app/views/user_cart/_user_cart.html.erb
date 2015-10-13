@@ -1,0 +1,52 @@
+<%= form_for user_cart, url: cart_url(user_cart), remote: true, method: :put do |f| %>
+<table class="table table-bordered table-striped table-hover">
+	<thead>
+		<tr>
+			<th><%= t('.title') %></th>
+			<th><%= t('.price') %></th>
+			<th><%= t('.quantity') %></th>
+			<th><%= t('.total') %></th>
+			<th><%= t('.operation') %></th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% user_cart.line_items.each do |item| %>
+			<%= f.fields_for :line_items, item do |item_form| %>
+			<tr id="line_item_info">
+				<td class="span3">
+					<%= image_tag(item.product.image_url, class: "thumbnail") %>
+					<%= item.product.title %>
+				</td>
+				<td><%= number_to_currency(item.product.price) %></td>
+				
+				<td><%= item_form.text_field :quantity, class: "input-small" %></td>
+				<td><%= number_to_currency(item.total_price) %></td>
+				<td>
+					<%= link_to t('.dele'), 
+								line_item_url(item),
+								method: :delete,
+								confirm: 'Are you sure?',
+								remote: true,
+								class: "btn btn-danger" %> 
+				</td>
+			</tr>
+			<% end %>
+		<% end %>
+	</tbody>
+</table>
+
+<div id="btn-group">
+<%= link_to t(".empty"),
+			 user_cart,
+			 confirm: 'Are you sure?',
+			 method: :delete,
+			 remote: true,
+			 class: "btn btn-danger" %>
+<%= submit_tag t(".update"),
+			   class: "btn btn-primary"%>
+<%= link_to t('.checkout'), 
+			  new_order_path, 
+			  class: "btn btn-primary" %>			   
+</div>
+<% end %>

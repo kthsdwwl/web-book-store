@@ -1,0 +1,11 @@
+<% if @error %>
+	$('#modal<%= @product.id %> #comment_alert').css('display', 'block')
+	$('#modal<%= @product.id %> #comment_info').css('display', 'none')
+<% else %>
+	$('#modal<%= @product.id %> #comment_alert').css('display', 'none')
+	$('#modal<%= @product.id %> #comment_info').css('display', 'block')
+	$('#modal<%= @product.id %> #comment_text').animate_from_to('#modal<%= @product.id %> h5')
+	$('#modal<%= @product.id %> #comment_text').val('')
+<% end %>
+
+$('#modal<%= @product.id %> .all_comments').html("<h5>Total <%= @product.comments.length %> comments: </h5> <%= j render @product.comments.order('created_at desc') %>")

@@ -1,0 +1,35 @@
+<h1><%= t('.page_title') %></h1>
+<p class="lead"><%= t('.page_subtitle') %> <%= link_to t('.new_product'), new_product_path, class: "btn btn-primary" %></p>
+
+<table class="blur">
+<% @products.each do |product| %>
+	<tr>
+		
+		<td class="span2">
+			<%= image_tag(product.image_url, class: 'list_image thumbnail')%>
+		</td>
+		
+		<td class="list_description">
+			<dl>
+				<dt><%= product.title %></dt>
+				<dd><%= truncate(strip_tags(product.description), length: 250)%></dd>
+			</dl>
+		</td>
+		
+		<td class="list_actions span2">
+			<p><%= link_to t('.show'), product_path(product), class: "btn " %></p>
+			<p><%= link_to t('.edit'), edit_product_path(product), class: "btn" %></p>
+			<p><%= link_to t('.dele'), product,
+								confirm: 'Are you sure?',
+								method: :delete,
+								class: "btn btn-danger" %>
+			</p>
+		</td>
+	</tr>
+<% end %>
+</table>
+
+<div>
+	<%= will_paginate @products, renderer: BootstrapPagination::Rails %>
+</div>
+

@@ -1,0 +1,46 @@
+<h1>Log In</h1>
+
+<div class="form-horizontal well">
+	<% if flash[:alert] %>
+	<div class="alert alert-error">
+		<p id="alert">
+			<strong>Alert </strong><%= flash[:alert] %>
+		</p>
+	</div>
+	<% elsif notice %>
+	<div class="alert alert-info">
+		<p id="notice">
+			<strong>Information </strong><%= notice %>
+		</p>
+	</div>
+	<% end %>
+	
+	<%= form_tag({action: 'create'}, {id: "login_form"}) do %>
+	<fieldset>
+		<legend>
+			Enter Information
+		</legend>
+
+		<div class="control-group">
+			<%= label_tag :name, 'Username', class: "control-label" %>
+			<div class="controls">
+				<%= text_field_tag :name, params[:name] %>
+				<i class="ideal-icon ideal-icon-valid" style="display: none;"></i>
+				<i class="ideal-icon ideal-icon-invalid" style="display: block;"></i>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<%= label_tag :password, 'Password', class: "control-label" %>
+			<div class="controls">
+				<%= password_field_tag :password, params[:password] %>
+			</div>
+		</div>
+
+		<div class="form-actions">
+			<%= submit_tag "Login", class: "btn btn-primary" %>
+		</div>
+	</fieldset>
+	<% end %>
+</div>
+

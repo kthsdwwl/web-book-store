@@ -1,0 +1,19 @@
+<h1>My Orders</h1>
+
+<div class="blur">
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th><%= t('.name') %></th>
+				<th><%= t('.address') %></th>
+				<th><%= t('.email') %></th>
+				<th><%= t('.pay_type') %></th>
+				<th><%= t('.status') %></th>
+				<th><%= t('.operation') %></th>
+			</tr>
+		</thead>
+		<tbody>
+			<%= render @orders %>
+		</tbody>
+	</table>
+</div>

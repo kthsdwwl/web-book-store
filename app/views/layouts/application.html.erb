@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Depot</title>
+		<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+		<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+		<%= csrf_meta_tags %>
+		<script>
+			$(function() {
+				readyFunction();
+				
+				$('#columns').css("display", "none");
+				
+				$('#columns').fadeIn(700);
+				
+				$(document).on('DOMNodeInserted', function() {
+					readyFunction();
+				})
+				
+				$(document).on('click', '#back_to_top', function() {
+					$('html,body').animate({scrollTop: 0}, 200);
+				})
+				
+				function readyFunction () {
+					$('#user_cart').blurjs({
+				      source: 'body',
+				      overlay: 'rgba(255,255,255,0.6)'
+					})
+					
+				}
+			})
+		</script>
+	</head>
+	
+	<body class='<%= controller.controller_name %>'>
+		<div id="wrapper">
+		<div id="banner" class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<%= link_to @page_title || t('.title'), store_url, class: "brand" %>
+
+					<div class="nav-collapse collapse" id="main-menu">
+						<ul class="nav" id="main-menu-left">
+							<li>
+								<%= link_to t('.home'), store_url %>
+							</li>
+							<li>
+								<a href=""><%= t('.news') %></a>
+							</li>
+							<li>
+								<a href=""><%= t('.contact') %></a>
+							</li>
+							<li class="dropdown">
+								<a class="dropdown-toggle" data-toggle="dropdown" href="#"> <%= t('.language')%> <b class="caret"></b> </a>
+								<ul class="dropdown-menu">
+									<% LANGUAGES.each do |language| %>
+									<li>
+										<%= link_to language[0], store_path(locale: language[1]) %>
+									</li>
+									<% end %>
+								</ul>
+							</li>
+						</ul>
+
+						<% if controller.controller_name == 'store' %>
+							<%= form_tag '/store/search', class: "navbar-search pull-left", remote: true do %>
+								<%= text_field_tag :title, nil, placeholder: t('.search'), class: "search-query span2" %>
+							<% end %>
+						<% end %>
+
+						<ul class="nav pull-right" id="main-menu-right">
+							<% if session[:user_id] %>
+							<li class="dropdown" id="user_menu">
+								<a class="dropdown-toggle" data-toggle="dropdown" href="#"> <%= session[:user_name] %> <b class="caret"></b> </a>
+
+								<ul class="dropdown-menu">
+									<li>
+										<% if @cart %>
+										<%= link_to t('.my_cart'), user_cart_show_user_cart_url %>
+										<% end %>
+									</li>
+									<li>
+										<%= link_to t('.my_orders'), orders_user_orders_url(id: session[:user_id]) %>
+									</li>
+									<% if session[:user_permission] == 1 %>
+									<li class="divider"></li>
+									<li>
+										<%= link_to t('.orders'), orders_path %>
+									</li>
+									<li>
+										<%= link_to t('.products'), products_path %>
+									</li>
+									<li>
+										<%= link_to t('.users'), users_path %>
+									</li>
+									<% end %>
+								</ul>
+							</li>
+							<li>
+								<%= link_to t('.logout'), logout_path, method: :delete %>
+							</li>
+							<%else%>
+							<li>
+								<%= link_to t('.login'), login_path %>
+							</li>
+							<li>
+								<%= link_to t('.register'), new_user_path %>
+							</li>
+				    		
+							<% end %>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="columns"  class="row-fluid">
+			<div id="side" class="span3">
+				<% if @cart %>
+				<%= hidden_div_if(@cart.line_items.empty?, id: "cart") do %>
+				<%= render @cart %>
+				<% end %>
+				<% end %>
+
+				<% if @parent_categories %>
+				<div class="well" id="category">
+					<h2>Product Categories</h2>
+					<dl>
+						<% @parent_categories.each do |p_item| %>
+						<dt>
+							<%= p_item.name %>
+						</dt>
+						<% p_item.categories.each do |item| %>
+						<dd>
+							<%= link_to item.name, store_show_url(category_id: item.id), method: :post, remote: true %>
+						</dd>
+						<% end %>
+						<% end %>
+					</dl>
+				</div>
+				<% end %>
+			</div>
+			<div id="main" class="span8">
+				<%= yield %>
+			</div>
+		</div>
+		<div id="back_to_top">
+			<%= image_tag("backtop1.png", alt: "Back to Top", title: t('.back_to_top')) %>
+		</div>
+		
+		<div id="push"></div>
+		
+		</div>
+		
+		<footer id="footer">
+			<i class="icon-trash icon-white"></i>
+			Made by 13-web-117.
+			
+			<!-- JiaThis Button BEGIN -->
+			<div class="jiathis_style pull-right">
+				<span class="jiathis_txt">分享到：</span>
+				<a class="jiathis_button_qzone">QQ空间</a>
+				<a class="jiathis_button_tsina">新浪微博</a>
+				<a class="jiathis_button_tqq">腾讯微博</a>
+				<a class="jiathis_button_renren">人人网</a>
+				<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+				<a class="jiathis_counter_style"></a>
+			</div>
+			<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1364806823326897" charset="utf-8"></script>
+			<!-- JiaThis Button END -->
+		</footer>
+		
+	</body>
+</html>

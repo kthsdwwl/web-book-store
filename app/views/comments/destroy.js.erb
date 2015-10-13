@@ -1,0 +1,3 @@
+$('#modal<%= @product.id %> .all_comments').html("<h5>Total <%= @product.comments.length %> comments: </h5> <%= j render @product.comments.order('created_at desc') %>")
+
+$('#book_comments').html("<h4>Total <%= @product.comments.length %> comments: </h4> <%= j render @product.comments.order('created_at desc') %>")

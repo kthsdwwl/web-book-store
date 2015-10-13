@@ -1,0 +1,84 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled filse, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+// First import variables
+@import "bootswatch/cerulean/variables";
+
+// Then bootstrap itself
+@import "bootstrap";
+
+// Bootstrap body padding for fixed navbar
+body { padding-top: 60px; }
+
+// Responsive styles go here in case you want them
+@import "bootstrap-responsive";
+
+// And finally bootswatch style itself
+@import "bootswatch/cerulean/bootswatch";
+
+html, body, #wrapper { height: 100%; }
+
+body {
+  // background: #F8F8FF;
+  background-image: asset-url("background.png");
+  background-position: top left;
+  background-repeat: repeat;
+
+  #back_to_top
+  {
+    position: fixed;
+    right:10px;
+    bottom:80px;
+  }
+  
+  h1, h2 {
+    text-shadow: black 1px 1px 1px; 
+  }
+  
+  .well, .blur, .modal {
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -moz-box-shadow: 0 1px 0 rgba(0,0,0,0.3),0 -1px 0 rgba(255,255,255,0.8),0 4px 10px rgba(0,0,0,0.6);
+    -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.3),0 -1px 0 rgba(255,255,255,0.8),0 4px 10px rgba(0,0,0,0.6);
+    box-shadow: 0 1px 0 rgba(0,0,0,0.3),0 -1px 0 rgba(255,255,255,0.8),0 4px 10px rgba(0,0,0,0.6);
+  }
+  
+  .blur {
+    background-color: white;
+  }
+  
+  #side {
+    margin-left: 8px;
+  }
+  
+  .pagination ul > .disabled > span, .pagination ul > .disabled > a, .pagination ul > .disabled > a:hover, .pagination ul > .disabled > a:focus {
+    background-color: whitesmoke;
+  }
+  
+  #footer {
+    padding: 20px 60px;
+    background: #333;
+    color: white;
+    box-shadow: inset 0 5px 5px rgba(0,0,0,.3);
+    margin-top: -15px;
+    height: 15px;
+  }
+  
+  #wrapper { 
+    height: auto; 
+    min-height: 100%;
+    padding-bottom: 20px;
+  }
+}

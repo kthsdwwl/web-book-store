@@ -1,0 +1,21 @@
+<% if notice %>
+<p id="notice" class="alert alert-info">
+	<%= notice %>
+</p>
+<% end %>
+
+<h1>Book Information</h1>
+
+<div id="book_info">
+	<%= render @product %>
+</div>
+
+<div id="book_comments" class="well" style="overflow: hidden">
+	<h4> Total <%= @product.comments.length %> comments: </h4>
+	<%= render @product.comments.order('created_at desc') %>
+</div>
+
+<%= link_to 'Edit', edit_product_path(@product), class: "btn btn-primary", style: "margin-bottom:10px; margin-right: 10px" %>
+<%= link_to 'Back', products_path, class: "btn btn-primary", style: "margin-bottom:10px;" %>
+
+

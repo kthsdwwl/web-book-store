@@ -1,0 +1,9 @@
+<h1>Welcome</h1>
+
+<div class="well" >
+	<% if session[:user_permission] == 1 %>
+	You're an <strong>administrator</strong>. We have <%= pluralize(@total_orders, "order") %>.
+	<% else %>
+	Welcome, <strong>buyer</strong> <%= session[:user_name] %>. Enjoy your shopping trip!
+	<% end %>
+</div>

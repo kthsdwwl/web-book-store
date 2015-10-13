@@ -1,0 +1,20 @@
+<div class="row-fluid comment_entry well span11">
+	<%= image_tag "head.jpg", class: "thumbnail span2" %>
+	<div class="comment_info span10" >
+		<p class="comment_name" >
+			<strong><%= comment.user.name %></strong>
+			<% if session[:user_permission] == 1 %>
+        	<%= link_to 'x', comment, method: :delete, 
+        							  data: { confirm: 'Are you sure?' }, 
+        							  class: "close pull-right dele_comment",
+        							  remote: true %>
+        	<% end %>
+		</p>
+		<p class="comment_content">
+			<%= comment.content%>
+		</p>
+		<p class="comment_time pull-right" style="color: #999; font-size: 13px">
+			<%= comment.created_at.strftime("%I:%M %d %b. %Y") %>
+		</p>
+	</div>
+</div>
