@@ -1,4 +1,2 @@
-13-Web-117
-==========
-
-网上书城(RoR)项目
+# web-book-store
+SYSU summer project, a web book store written in Ruby
